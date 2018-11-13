@@ -11,6 +11,7 @@ Disadvantages;
  * single process per application
  * no HA
  * no horizontal scaling
+ * not recommended when using more than 500 clients
 
 To install Landscape 18.03 using quickstart on Ubuntu 16.04 LTS ("xenial"), follow these simple steps:
 ```
@@ -24,7 +25,7 @@ If you have a valid LDS license, copy it over to `/etc/landscape/license.txt` an
     sudo lsctl restart
 ```
 
-### Setup first user
+## Setup first user
 The first user that is created in LDS automatically becomes the administrator of the "standalone" account. To create it, please go to https://<servername> and fill in the requested information.
 == Registering clients ==
 In order to register a computer with LDS, you need to install the `landscape-client` package:
@@ -49,4 +50,3 @@ If you get registration errors on the client, the reason why it failed will most
  * `ssl_public_key` in `/etc/landscape/client.conf` should be pointing at a copy of the server self-signed certificate
  * `<server>` in the URL of the `landscape-config` command-line must match the server hostname as used in the certificate. Check the outputs of `hostname -f` and `hostname` on the server
  * check the `commonName` field of the certificate with `openssl x509 -in <certificate-file> -noout -subject`
-
