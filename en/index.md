@@ -51,4 +51,4 @@ Once the deployment has finished, grab the address of the first `haproxy` unit a
 juju status haproxy
 ```
 
-* **[Manual installation](LDS/ManualInstallation18.03)**: for when you don't have a suitable Juju environment but need a scalable deployment.
+* **[Manual installation](landscape-manual-install.html)**: for when you don't have a suitable Juju environment but need a scalable deployment.
