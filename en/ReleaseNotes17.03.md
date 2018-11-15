@@ -13,12 +13,12 @@ These are the release notes for Landscape 17.03.
  * Landscape Release 17.03.4 with bug fixes and changes
  * Variable delay to USN refresh to avoid timeouts. [Bug #1754806](https://bugs.launchpad.net/bugs/1754806).
  * Landscape Release 17.03.3 with bug fixes and changes
- * Adding suite in Release file for mirrors to allow using landscape-managed mirrors in netinstall. [Bug #1740962](https://bugs.launchpad.net/bugs/1740962)
- * Retrying after errors during computer removal to handle database reconnections. [Bug #1724616](https://bugs.launchpad.net/bugs/1724616)
+ * Adding suite in Release file for mirrors to allow using landscape-managed mirrors in netinstall. [Bug #1740962](https://bugs.launchpad.net/bugs/1740962).
+ * Retrying after errors during computer removal to handle database reconnections. [Bug #1724616](https://bugs.launchpad.net/bugs/1724616).
  * Landscape Release 17.03.2 with repository management bug fixes and changes.
- * ValueError when handling reprepro error. When storing the repository management files in an NFS mount, the gpg-agent process that is spawned indirectly by reprepro will hold a file descriptor open on an deleted file, triggering the [NFS silly rename](http://nfs.sourceforge.net/#faq_d2) behavior. Landscape will fail to remove this special file and the repository operation will be interrupted. As soon as the gpg-agent process dies, the file will be removed on its own, that's why the operation ends up working if tried multiple times. The fix for this bug is to just ignore that particular failure. [Bug #1554208](https://launchpad.net/bugs/1554208)
- * Create/derive-series does not inherit udeb setting. Add a include-udeb option to create-series so that the optional pockets that can be created with this API call can also include udebs if so desired. Additionally, derive-series was fixed to honor the udeb setting from the parent series on the new derived series. [Bug #1723930](https://launchpad.net/bugs/1723930)
- * Edit-pocket should have option to toggle udeb support. To help with systems that have derived series already created and without udebs, the edit-pocket API call also received a new unclude-udeb option to allow changing this setting on already existing pockets. [Bug #1725323](https://launchpad.net/bugs/1725323)
+ * ValueError when handling reprepro error. When storing the repository management files in an NFS mount, the gpg-agent process that is spawned indirectly by reprepro will hold a file descriptor open on an deleted file, triggering the [NFS silly rename](http://nfs.sourceforge.net/#faq_d2) behavior. Landscape will fail to remove this special file and the repository operation will be interrupted. As soon as the gpg-agent process dies, the file will be removed on its own, that's why the operation ends up working if tried multiple times. The fix for this bug is to just ignore that particular failure. [Bug #1554208](https://launchpad.net/bugs/1554208).
+ * Create/derive-series does not inherit udeb setting. Add a include-udeb option to create-series so that the optional pockets that can be created with this API call can also include udebs if so desired. Additionally, derive-series was fixed to honor the udeb setting from the parent series on the new derived series. [Bug #1723930](https://launchpad.net/bugs/1723930).
+ * Edit-pocket should have option to toggle udeb support. To help with systems that have derived series already created and without udebs, the edit-pocket API call also received a new unclude-udeb option to allow changing this setting on already existing pockets. [Bug #1725323](https://launchpad.net/bugs/1725323).
  * To use the new udeb related parameters in the landscape API, please also upgrade the `landscape-api` package to version 17.03.2. If you use the raw API, then just adjust your code for the new optional parameters if you intend to use them.
  * Important new known issue that can affect how long the `landscape-server` takes to upgrade: please read the Known Issues section at the end of this document.
  * There are no special upgrade instructions for Landscape 17.03.2, regardless of the installation method.
@@ -30,21 +30,21 @@ This section describes the changes and new features in more detail.
  
 ## Nova LXD (On-prem)
 
-The OpenStack Autopilot now allows the deployment of [nova-lxd](https://github.com/openstack/nova-lxd), bringing system containers to !OpenStack using nova-lxd. With this feature, it's possible to pick a percentage of cores to deploy with KVM and LXD hypervisors across your compute servers.  LXD needs different images from KVM, but most workloads will operate transparently on this hypervisor choice that allows significantly denser deployments than KVM.
+The OpenStack Autopilot now allows the deployment of [nova-lxd](https://github.com/openstack/nova-lxd), bringing system containers to OpenStack using nova-lxd. With this feature, it's possible to pick a percentage of cores to deploy with KVM and LXD hypervisors across your compute servers.  LXD needs different images from KVM, but most workloads will operate transparently on this hypervisor choice that allows significantly denser deployments than KVM.
 
 ## OpenStack Ocata, 17.02 OpenStack Charms (On-prem)
 
-The Autopilot in Landscape 17.03 will deploy an [[https://releases.openstack.org/ocata/|OpenStack Ocata]] cloud using the [[http://docs.openstack.org/developer/charm-guide/1702.html|17.02 OpenStack charms]].
+The Autopilot in Landscape 17.03 will deploy an [OpenStack Ocata](https://releases.openstack.org/ocata) cloud using the [17.02 OpenStack charms](http://docs.openstack.org/developer/charm-guide/1702.html).
 
 ## MAAS 2.1 (On-prem)
 
-[[https://maas.io/|MAAS]] support is now exclusive to version 2.1.3 and newer.  This is the default version of MAAS in Ubuntu 16.04.  MAAS is the way the !OpenStack Autopilot provisions machines, and needs to be setup fully before using it with Landscape.
+[MAAS](https://maas.io) support is now exclusive to version 2.1.3 and newer.  This is the default version of MAAS in Ubuntu 16.04.  MAAS is the way the OpenStack Autopilot provisions machines, and needs to be setup fully before using it with Landscape.
 
 When specifying MAAS nodes via the Landscape API to deploy a cloud, use only the first part of the name (i.e. 'my-node' instead of 'my-node.maas').
 
 ## Juju 2.1 (On-prem)
 
-[[https://jujucharms.com/|Juju]] support is now exclusive to version 2.1 and newer.  Juju is installed automatically as a dependency of landscape, and should be transparent to you as an operator.  For more advanced debugging and maintenance of your cloud, some [[https://jujucharms.com/docs/2.0/introducing-2|commands have changed]].
+[Juju](https://jujucharms.com) support is now exclusive to version 2.1 and newer.  Juju is installed automatically as a dependency of landscape, and should be transparent to you as an operator.  For more advanced debugging and maintenance of your cloud, some [commands have changed](https://jujucharms.com/docs/2.0/introducing-2).
 
 As a result of the exclusive support for Juju 2.1, registered Juju 1 environments are no longer supported. When upgrading to Landscape 17.03, remove any registered Juju 1 environments with:
 
@@ -53,17 +53,17 @@ landscape-api get-juju-environments
 landscape-api remove-juju-environment <environment_name>
 ```
 
-It's also recommended to destroy and re-deploy your cloud if you want to continue to use the management features of the !OpenStack Autopilot.
+It's also recommended to destroy and re-deploy your cloud if you want to continue to use the management features of the OpenStack Autopilot.
 
 ## Portable URLs - SAAS
 
 It is now possible to share Landscape URLs to other people without knowing their account name.
 
-e.g. URLs like "https://landscape.acme.com/~/how-to-register" will translate to "https://landscape.acme.com/account/MY-ACCOUNT/how-to-register"
+e.g. URLs like `https://landscape.acme.com/~/how-to-register` will translate to `https://landscape.acme.com/account/MY-ACCOUNT/how-to-register`
 
 This also makes it possible to have static documentation which is portable across many Landscape users.
 
-= Upgrade notes =
+# Upgrade notes
 
 Landscape 17.03 supports Ubuntu 16.04 LTS ("xenial"). It can only be upgraded from Landscape 16.06 also running on the same Ubuntu 16.04 LTS release.
 
@@ -72,7 +72,7 @@ To upgrade a Landscape 16.06 running on Ubuntu 14.04 LTS ("trusty") to Landscape
 ## Quickstart upgrade
 If you used the landscape-server-quickstart package to install Landscape 16.06 then you can use this method to upgrade it.
 
-If you are a https://landscape.canonical.com customer, you can select new version of Landscape in your hosted account at https://landscape.canonical.com and then run:
+If you are a [Landscape](https://landscape.canonical.com) customer, you can select new version of Landscape in your hosted account at [https://landscape.canonical.com](https://landscape.canonical.com) and then run:
 ```
     sudo apt-get update
     sudo apt-get dist-upgrade
@@ -236,7 +236,7 @@ timing:
 ```
 
 
-= Other changes of note =
+# Other changes of note
 
  * Landscape will send back anonymous usage data to Canonical to help
  improve the product. You may opt-out of this behaviour globally in the
@@ -245,24 +245,24 @@ timing:
  * Copying package profiles no longer applies the copied profile to the
  same set of computers by default -- it applies to no computers instead.
 
- * The minimum recommended machine specs for an !OpenStack node is:
+ * The minimum recommended machine specs for an OpenStack node is:
    * 64G of Ram
    * 4 cores
    * no less than 8G of memory per core
    * 100G of root disk storage
    * 100G of secondary disk storage
-   * 10 physical systems is enough for a staging/demonstration cloud.  For production clouds, you will need to [[https://buy.ubuntu.com|purchase more seats]].  Canonical recommends a starting cloud size of 15 physical systems.
+   * 10 physical systems is enough for a staging/demonstration cloud.  For production clouds, you will need to [purchase more seats](https://buy.ubuntu.com). Canonical recommends a starting cloud size of 15 physical systems.
 
-= Known issues =
+# Known issues
 
 This section describes some relevant known issues that might affect your usage of Landscape 17.03.
 
- * When launching new instances using Horizon's UI, un-check the "create a new volume" during instance creation to avoid a timeout error reported in the UI. [[https://bugs.launchpad.net/bugs/1644923|bug #1644923]]
- * Deployed clouds will get nagios alerts on conntrack checks not working. [[https://bugs.launchpad.net/bugs/1673064|bug #1673064]]
- * Deployed clouds will get nagios alerts on metering.sample rabbit queue size. [[https://bugs.launchpad.net/bugs/1676586|bug #1676586]]
- * There are known memory leaks in juju 2.1.2 (used to deploy the cloud) and it may eventually fail to gracefully recover.  "Add Hardware" and other !OpenStack administration tasks may fail.  Standard recovery options (restarting juju daemons) should be used in the event this happens. 
+ * When launching new instances using Horizon's UI, un-check the "create a new volume" during instance creation to avoid a timeout error reported in the UI. [Bug #1644923](https://bugs.launchpad.net/bugs/).
+ * Deployed clouds will get nagios alerts on conntrack checks not working. [Bug #1673064](https://bugs.launchpad.net/bugs/1673064).
+ * Deployed clouds will get nagios alerts on metering.sample rabbit queue size. [Bug #1676586](https://bugs.launchpad.net/bugs/1676586).
+ * There are known memory leaks in juju 2.1.2 (used to deploy the cloud) and it may eventually fail to gracefully recover.  "Add Hardware" and other OpenStack administration tasks may fail.  Standard recovery options (restarting juju daemons) should be used in the event this happens. 
  * Juju 2.1.2 can sometimes take a while to release nodes gracefully.  Currently landscape gives a 2 minute timeout for this graceful termination before the nodes are directly released in MAAS.
- * The `landscape-package-search` service ignores the `RUN_*` variable settings in `/etc/default/landscape-server` and will always try to start. To configure it not to start, run this command: `sudo systemctl disable landscape-package-search`. If it was already running, you will also have to stop it: `sudo service landscape-package-search stop`. This is only noticeable using multiple application servers [[https://bugs.launchpad.net/landscape/+bug/1675569|bug #1675569]].
+ * The `landscape-package-search` service ignores the `RUN_*` variable settings in `/etc/default/landscape-server` and will always try to start. To configure it not to start, run this command: `sudo systemctl disable landscape-package-search`. If it was already running, you will also have to stop it: `sudo service landscape-package-search stop`. This is only noticeable using multiple application servers [Bug #1675569](https://bugs.launchpad.net/landscape/+bug/1675569).
  * To upgrade to 17.03 from 16.06, you must first `do-release-upgrade` to xenial.
  * Juju does not support Ubuntu release upgrades currently. To upgrade from 16.06 to 17.03 there you must tear down and redeploy, migrating data where necessary/desired.
  * When the landscape-server package is installed or upgraded, its postinst step runs a `chown landscape:landscape -R /var/lib/landscape` command. If you have the repository management files mounted via NFS in the default location `/var/lib/landscape/landscape-repository` and with the NFS `root_squash` option set, then this command will fail. There are two workarounds:
@@ -282,9 +282,9 @@ This section describes some relevant known issues that might affect your usage o
     sudo lsctl start 
     # update /etc/fstab regarding the new mount point, to avoid surprises after a reboot 
 ```
- * Also due to the `chown` command run during postinst explained above, the upgrade can take a long time if the repository files are mounted somewhere `/var/lib/landscape`, depending on the size of the repository. On an experiment with two machines on the same gigabit switch and a 150Gb repository mounted via NFS, a test upgrade spent about 30min just in that `chown` command. While that happens, the service is down. This is being tracked as bug [[https://bugs.launchpad.net/landscape/+bug/1725282|#1725282]] and until a fix is explicitly mentioned in the release notes, we suggest the same workaround as for the previous case: mount the repository outside of the `/var/lib/landscape/` tree.
+ * Also due to the `chown` command run during postinst explained above, the upgrade can take a long time if the repository files are mounted somewhere `/var/lib/landscape`, depending on the size of the repository. On an experiment with two machines on the same gigabit switch and a 150Gb repository mounted via NFS, a test upgrade spent about 30min just in that `chown` command. While that happens, the service is down. This is being tracked as [bug #1725282](https://bugs.launchpad.net/landscape/+bug/1725282) and until a fix is explicitly mentioned in the release notes, we suggest the same workaround as for the previous case: mount the repository outside of the `/var/lib/landscape/` tree.
 
 ## In 17.03.2 only
- * The API documentation was not re-generated for this build. This means that the new `include_udeb` options are not documented in the included API docs visible on the server under the `static/doc/api/repositories.html` URL path component. The help output of the updated landscape-api 17.03.2 package, however, has the updated documentation and can be used as a reference in the meantime. Additionally, as soon as https://landscape.canonical.com gets the same code updates, the API documentation available on that site will also contain the updated API call description:
-  * https://landscape.canonical.com/static/doc/api/repositories.html#editpocket
-  * https://landscape.canonical.com/static/doc/api/repositories.html#createseries
+ * The API documentation was not re-generated for this build. This means that the new `include_udeb` options are not documented in the included API docs visible on the server under the `static/doc/api/repositories.html` URL path component. The help output of the updated landscape-api 17.03.2 package, however, has the updated documentation and can be used as a reference in the meantime. Additionally, as soon as [landscape.canonical.com](https://landscape.canonical.com) gets the same code updates, the API documentation available on that site will also contain the updated API call description:
+  * [https://landscape.canonical.com/static/doc/api/repositories.html#editpocket](https://landscape.canonical.com/static/doc/api/repositories.html#editpocket)
+  * [https://landscape.canonical.com/static/doc/api/repositories.html#createseries](https://landscape.canonical.com/static/doc/api/repositories.html#createseries)
