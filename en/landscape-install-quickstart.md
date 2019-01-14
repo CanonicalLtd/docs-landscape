@@ -26,7 +26,7 @@ If you have a valid LDS license, copy it over to `/etc/landscape/license.txt` an
 ```
 
 ## Setup first user
-The first user that is created in LDS automatically becomes the administrator of the "standalone" account. To create it, please go to https://<servername> and fill in the requested information.
+The first user that is created in LDS automatically becomes the administrator of the "standalone" account. To create it, please go to `https://<servername>` and fill in the requested information.
 == Registering clients ==
 In order to register a computer with LDS, you need to install the `landscape-client` package:
 ```
