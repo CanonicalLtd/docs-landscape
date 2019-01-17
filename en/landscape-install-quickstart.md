@@ -13,9 +13,9 @@ Disadvantages;
  * no horizontal scaling
  * not recommended when using more than 500 clients
 
-To install Landscape 18.03 using quickstart on Ubuntu 16.04 LTS ("xenial"), follow these simple steps:
+To install Landscape 19.01 using quickstart on Ubuntu 18.04 LTS ("bionic"), follow these simple steps:
 ```
-    sudo add-apt-repository ppa:landscape/18.03
+    sudo add-apt-repository ppa:landscape/19.01
     sudo apt-get update
     sudo apt-get install landscape-server-quickstart
 ```

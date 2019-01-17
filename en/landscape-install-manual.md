@@ -1,4 +1,4 @@
-Title: Landscape 18.03 Manual Installation
+Title: Landscape 19.01 Manual Installation
 
 
 # Manual Installation
@@ -6,7 +6,6 @@ Title: Landscape 18.03 Manual Installation
 This is the baseline deployment recommendation we have for the LDS product when Juju is not used. At a minimum, we have two machines:
 
  * a database server, running Ubuntu 18.04 LTS ("bionic"), with Postgresql 10.
- * If deploying Landscape to Ubuntu 16.04 LTS ("xenial"), Postgresql 9.5 is the supported version.
  * an application server, running the same version of Ubuntu as the Database server, hosting the Landscape services
  
 # Network access
@@ -21,7 +20,7 @@ This is a long document. Don't be intimidated. If you want a quick installation 
 
 What you will need:
 
- * Ubuntu 18.04 LTS ("bionic") server install media. Ubuntu 16.04 LTS ("xenial") is also supported.
+ * Ubuntu 18.04 LTS ("bionic") server install media.
  * Landscape Dedicated Server license file. If you don't have one, a free demo license with a small number of seats will be used instead.
  * Server X509 certificate and key, signed by a publicly known Certificate Authority, and issued for the FQDN hostname of the application server.
  * Custom CAs can be used, but this is not documented here as it's considered an advanced topic. Administrators deploying custom CAs most likely know what needs to be done. In any case, this quick how-to may help:[LDS/SSL-creating a simple CA and issuing a certificate](https://help.landscape.canonical.com/LDS/SSL). You MUST use the same version of Ubuntu on both the Application server and the Database server.
@@ -32,14 +31,8 @@ After having installed the basic server profile of Ubuntu Server, we need to ins
 ## Install postgresql and required libraries
 In the database server, run this command to install the database software.
 
-If installing on Ubuntu 18.04 LTS ("bionic"):
 ```
 sudo apt-get install postgresql-10 python-apt postgresql-plpython-10 postgresql-contrib-10 postgresql-10-debversion
-```
-
-If installing on Ubuntu 16.04 LTS ("xenial"):
-```
-sudo apt-get install postgresql-9.5 python-apt postgresql-plpython-9.5 postgresql-contrib-9.5 postgresql-9.5-debversion
 ```
 
 ## Create a superuser Landscape can use
@@ -105,7 +98,7 @@ Let's begin.
 ## Adding the Landscape package archive and installing the package
 Landscape is distributed in a public PPA. You can add it to the system with these commands:
 ```
-    sudo add-apt-repository ppa:landscape/18.03
+    sudo add-apt-repository ppa:landscape/19.01
     sudo apt-get update
 ```
 

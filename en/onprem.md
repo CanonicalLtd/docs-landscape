@@ -4,8 +4,9 @@ Landscape On-Premises, is the standalone version of Landscape that you can insta
 
 Each major Landscape version is supported for a period of one year after release. Here are the current supported releases:
 
-| **major version**                  | **Release date** | **Supported until** | **Version of Ubuntu**  | 
-| ----------------------             | ---------------- | ------------------- | ---------------------  |
+| **major version**                | **Release date** | **Supported until** | **Version of Ubuntu**  |
+| ----------------------           | ---------------- | ------------------- | ---------------------  |
+| [19.01](./ReleaseNotes19.01.md)  | 2019-Jan         | **2020-Jan**        | 18.04 LTS              |
 | [18.03](./ReleaseNotes18.03.md)  | 2018-Jun         | **2019-Jun**        | 16.04 LTS or 18.04 LTS |
 | [17.03](./ReleaseNotes17.03.md)  | 2017-Mar         | **2019-Mar**        | 16.04 LTS              |
 
