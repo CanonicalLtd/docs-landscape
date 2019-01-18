@@ -71,22 +71,13 @@ Follow these steps to perform a non-quickstart upgrade, that is, you did not use
 ```
  * re-enable the landscape-server cron jobs in `/etc/cron.d/landscape-server` in all app servers
 
-## Charm upgrade
+## Charm upgrade with juju 2.x
 
-Starting with Landscape 15.10, juju deployed Landscape can be upgraded
-in place. If you have just one landscape server unit, please follow
+Starting with Landscape 15.10, Juju deployed Landscape can be upgraded
+in place. If you have just one landscape-server unit, please follow
 this procedure:
 
 ```
-# Juju 1.x:
-juju upgrade-charm landscape-server
-juju set landscape-server source=ppa:landscape/19.01
-juju action do landscape-server/0 pause
-juju action do landscape-server/0 upgrade
-juju action do landscape-server/0 migrate-schema
-juju action do landscape-server/0 resume
-
-# Juju 2.x:
 juju upgrade-charm landscape-server
 juju config landscape-server source=ppa:landscape/19.01
 juju run-action landscape-server/0 pause
@@ -103,27 +94,12 @@ Each action returns an identifier that should be used to check its
 outcome with the fetch command before running the next action:
 
 ```
-# Juju 1.x:
-juju action fetch <uuid>
-
-# Juju 2.x:
 juju show-action-output --wait 0 <uuid>
 ```
 
 For example:
 
 ```
-# Juju 1.x:
-$ juju action do landscape-server/0 pause
-Action queued with id: 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
-$ juju action fetch 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
-status: completed
-timing:
-  completed: 2016-06-23 19:24:39 +0000 UTC
-  enqueued: 2016-06-23 19:24:32 +0000 UTC
-  started: 2016-06-23 19:24:33 +0000 UTC
-  
-# Juju 2.x: 
 $ juju run-action landscape-server/0 pause
 Action queued with id: 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
 $ juju show-action-output --wait 0 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
@@ -139,7 +115,61 @@ we are trying to upgrade a unit that hasn't been paused before, other
 than command line structure, this has not changed in Juju 2.x:
 
 ```
-# Juju 1.x:
+$ juju run-action landscape-server/0 upgrade
+Action queued with id: f3d2343c-33e4-4faf-8c4e-59f796124dd4
+$ juju show-action-output --wait 0 f3d2343c-33e4-4faf-8c4e-59f796124dd4
+message: This action can only be called on a unit in paused state.
+status: failed
+timing:
+  completed: 2016-06-23 19:26:40 +0000 UTC
+  enqueued: 2016-06-23 19:26:36 +0000 UTC
+  started: 2016-06-23 19:26:38 +0000 UTC
+```
+
+## Charm upgrade with Juju 1.x
+
+Starting with Landscape 15.10, Juju deployed Landscape can be upgraded
+in place. If you have just one landscape-server unit, please follow
+this procedure:
+
+```
+juju upgrade-charm landscape-server
+juju set landscape-server source=ppa:landscape/19.01
+juju action do landscape-server/0 pause
+juju action do landscape-server/0 upgrade
+juju action do landscape-server/0 migrate-schema
+juju action do landscape-server/0 resume
+```
+
+For multiple landscape-server units, you should pause all of them,
+upgrade one by one, run the migrate-schema command on only one, and
+then resume all units.
+
+Each action returns an identifier that should be used to check its
+outcome with the fetch command before running the next action:
+
+```
+juju action fetch <uuid>
+```
+
+For example:
+
+```
+$ juju action do landscape-server/0 pause
+Action queued with id: 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
+$ juju action fetch 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
+status: completed
+timing:
+  completed: 2016-06-23 19:24:39 +0000 UTC
+  enqueued: 2016-06-23 19:24:32 +0000 UTC
+  started: 2016-06-23 19:24:33 +0000 UTC
+```
+
+As an example of when it fails and what kind of output to expect, here
+we are trying to upgrade a unit that hasn't been paused before, other
+than command line structure:
+
+```
 $ juju action do landscape-server/0 upgrade
 Action queued with id: f3d2343c-33e4-4faf-8c4e-59f796124dd4
 $ juju action fetch f3d2343c-33e4-4faf-8c4e-59f796124dd4
@@ -158,7 +188,7 @@ This section describes some relevant known issues that might affect your usage o
 
  * The `landscape-package-search` service ignores the `RUN_*` variable settings in `/etc/default/landscape-server` and will always try to start. To configure it not to start, run this command: `sudo systemctl disable landscape-package-search`. If it was already running, you will also have to stop it: `sudo service landscape-package-search stop`. This is only noticeable using multiple application servers [Bug #1675569](https://bugs.launchpad.net/landscape/+bug/1675569).
 
- * To upgrade to 19.01 from Ubuntu 16.04, you must first `do-release-upgrade` to bionic.
+ * To upgrade to 19.01 from Ubuntu 16.04, you must first `do-release-upgrade` to Ubuntu 18.04.
 
  * When the landscape-server package is installed or upgraded, its postinst step runs a `chown landscape:landscape -R /var/lib/landscape` command. If you have the repository management files mounted via NFS in the default location `/var/lib/landscape/landscape-repository` and with the NFS `root_squash` option set, then this command will fail. There are two workarounds:
    * temporarily enable the `no_root_squash` option on the NFS server, which will allow the command to complete
