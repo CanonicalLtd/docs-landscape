@@ -9,8 +9,7 @@ install on managed computers. While Ubuntu has several repositories that anyone
 can access, you can also maintain your own repositories on your network. This
 can be useful when you want to maintain packages with different versions from
 those in the community repositories, or if you've packages in-house software
-for installation. Landscape's 12.09 release notes contain a quick tutorial
-about repository management.
+for installation.
 
 Some terminology:
 
