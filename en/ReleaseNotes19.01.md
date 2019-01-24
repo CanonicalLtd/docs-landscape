@@ -135,6 +135,9 @@ Re-enable the landscape-server cron jobs in `/etc/cron.d/landscape-server` in al
 
 Starting with Landscape 15.10, Juju deployed Landscape can be upgraded in place. The method for upgrading varies based upon using Juju 1.x or Juju 2.x and using a single unit for deployment vs mutliple unit deployment.
 
+!!! Note:
+    Newer landscape-server charm deprecates the `source` configuration key in favor of `install_sources`. The procedures in this document reflect this change.
+
 ### Using Juju 2.x
 
 #### Single unit deployment
@@ -142,7 +145,7 @@ If you have just one landscape-server unit, please follow this procedure:
 
 ```
 juju upgrade-charm landscape-server
-juju config landscape-server source=ppa:landscape/19.01
+juju config landscape-server source="" install_sources="['ppa:landscape/19.01']"
 juju run-action landscape-server/0 pause
 juju run-action landscape-server/0 upgrade
 juju run-action landscape-server/0 migrate-schema
@@ -196,7 +199,7 @@ juju upgrade-charm landscape-server
 
 Next, switch to the Landscape 19.01 PPA:
 ```
-juju config landscape-server source=ppa:landscape/19.01
+juju config landscape-server source="" install_sources="['ppa:landscape/19.01']"
 ```
 Pause all of the units by issuing a command similar to this for each landsacpe-server unit:
 ```
@@ -225,7 +228,7 @@ If you have just one landscape-server unit, please follow this procedure:
 
 ```
 juju upgrade-charm landscape-server
-juju set landscape-server source=ppa:landscape/19.01
+juju set landscape-server source="" install_sources="['ppa:landscape/19.01']"
 juju action do landscape-server/0 pause
 juju action do landscape-server/0 upgrade
 juju action do landscape-server/0 migrate-schema
@@ -280,7 +283,7 @@ juju upgrade-charm landscape-server
 
 Next, switch to the Landscape 19.01 PPA:
 ```
-juju set landscape-server source=ppa:landscape/19.01
+juju set landscape-server source="" install_sources="['ppa:landscape/19.01']"
 ```
 
 Pause all of the units by issuing a command similar to this for each landsacpe-server unit:
