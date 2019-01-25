@@ -47,14 +47,14 @@ When prompted, reply with \`N\` to any dpkg questions about configuration files 
 
 ## Non-quickstart upgrade
 
-Follow these steps to perform a non-quickstart upgrade, that is, you did not use the landscape-server-quickstart package when installing Landscape 17.04:
+Follow these steps to perform a non-quickstart upgrade, that is, you did not use the landscape-server-quickstart package when installing Landscape 17.03:
 
  * stop all landscape services on all machines that make up your non-quickstart deployment, except the database service: `sudo lsctl stop`
  * double check that `UPGRADE_SCHEMA` is set to what you want in `/etc/default/landscape-server`
  * disable all the landscape-server cron jobs from `/etc/cron.d/landscape-server` in all app servers
  * Restart apache using `sudo service apache2 restart`
  * add the Landscape 18.03 PPA: `sudo add-apt-repository -u ppa:landscape/18.03`
- * update and upgrade: `sudo apt-get update && apt-get dist-upgrade`
+ * update and upgrade: `sudo apt-get update && sudo apt-get dist-upgrade`
  * answer with `N` to any dpkg questions about Landscape configuration files
  * if you have `UPGRADE_SCHEMA` enabled in `/etc/default/landscape-server`, then the required schema upgrade will be performed as part of the package upgrade and all services will be running at the end. The upgrade is finished.
  * if `UPGRADE_SCHEMA` is disabled, then you will have failures when the services are restarted at the end of the upgrade. That's expected. You now have to perform the schema upgrade manually with this command: 
