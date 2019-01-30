@@ -42,4 +42,4 @@ path to your certificate:
 export LANDSCAPE_API_SSL_CA_FILE="/path/to/ca/file"
 ```
 
-[Landscape API Referecne](https://landscape.canonical.com/static/doc/api/)
+[Landscape API Reference](https://landscape.canonical.com/static/doc/api/)
