@@ -2,7 +2,7 @@ Title: Repositories
 
 # Repositories
 
-This requires using the Landscape API.
+This requires using the Landscape [API](./api.md)
 
 Linux distributions like Ubuntu use repositories to hold packages you can
 install on managed computers. While Ubuntu has several repositories that anyone
