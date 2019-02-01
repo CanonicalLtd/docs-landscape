@@ -2,17 +2,18 @@ Title: Landscape
 
 # Introduction to Landscape
 
-Landscape is a system management tool designed to let you easily manage multiple Ubuntu systems - up to 40,000 with a single Landscape instance:
+Landscape is a system management tool designed to let you easily manage multiple Ubuntu systems.
 
 ## Systems management
 
+ * Up to 40,000 machines with a single [manual installation](./landscape-install-manual.md) type instance
  * Manage desktop, server and cloud deployments
  * Group machines using tags, and manage each group separately.
- * Up to 40,000 machines with a single instance
  * Create custom profiles for managing different machine classes
  * Easily install, update and remove software
  * Define policies for automated updates and security patches
  * Configure users and groups
+ * Scriptable API to customise Landscape for your organisation’s needs
  
  ## Monitor your machines at scale
 
@@ -40,18 +41,9 @@ Landscape is a system management tool designed to let you easily manage multiple
  * Mirror and stage internal or external APT repositories
  * Upload and manage custom packages
 
-## Integrate Landscape with your current systems
-
- * Scriptable API to customise Landscape for your organisation’s needs
- * Integrate with your current configuration management, monitoring and ticketing systems
-
 ## Available in two flavors:
 
- * [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) variant found at at [landscape.canonical.com](https://landscape.canonical.com/) can be used as a hosted service part of a [Ubuntu Advantage](https://buy.ubuntu.com/) subscription. 
+ * SaaS variant found at [landscape.canonical.com](https://landscape.canonical.com/) can be used as a hosted service part of a [Ubuntu Advantage](https://buy.ubuntu.com/) subscription or [directly](https://landscape.canonical.com/try-landscape).
  * [Landscape On-Premises](./onprem.md) is meant for those wanting to have the server installed and managed by themselves, on dedicated hardware.
 
 The main difference between the two flavors of Landscape is that On-Premises has repository management. In general, the SaaS version receives new features first. Therefore, there is the possibility for differences between the two versions. The base code is the same, but the SaaS version might get new features and bug fixes faster than Landscape On-Premises.
-
-[User Guide](./user-guide.md)
-
-[API Documentation](./api.md)
