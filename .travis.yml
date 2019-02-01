@@ -1,15 +1,7 @@
-language: python
 dist: xenial
-
-python:
-  - "3.5"
-
-before_install:
-  - pip install requests
 
 install:
   - sudo snap install documentation-builder
  
 script:
-  - documentation-builder
-
+- documentation-builder
