@@ -50,7 +50,7 @@ When prompted, reply with \`N\` to any dpkg questions about configuration files 
 Follow these steps to perform a non-quickstart upgrade, that is, you did not use the landscape-server-quickstart package when installing Landscape 17.03:
 
  * stop all landscape services on all machines that make up your non-quickstart deployment, except the database service: `sudo lsctl stop`
- * double check that `UPGRADE_SCHEMA` is set to what you want in `/etc/default/landscape-server`
+ * double check that `UPGRADE_SCHEMA` is set to `no` in `/etc/default/landscape-server`
  * disable all the landscape-server cron jobs from `/etc/cron.d/landscape-server` in all app servers
  * Restart apache using `sudo service apache2 restart`
  * add the Landscape 18.03 PPA: `sudo add-apt-repository -u ppa:landscape/18.03`
@@ -234,13 +234,14 @@ sudo do-release-upgrade -d
 !!! Note:
     Pay close attention to its output: it should say that it is starting an upgrade to "bionic".
 
- * Reboot after the upgrade is done.
- * Verify that Landscape is still operating normally.
+ * Reboot after the upgrade is done:
+```
+sudo reboot
+```
  * Stop all Landscape services:
 ```
 sudo lsctl stop
 ```
-
 Now we will upgrade the database server:
 
  * While still on postgresql 9.5, upgrade the server from Ubuntu 16.04 LTS ("bionic") to Ubuntu 18.04 LTS ("bionic") using the `do-release-upgrade` tool just like before.
@@ -258,6 +259,10 @@ sudo pg_dropcluster 10 main --stop
  * Upgrade the 9.5 cluster:
 ```
 sudo pg_upgradecluster 9.5 main
+```
+ * If the `UPGRADE_SCHEMA` is set to `no` in `/etc/default/landscape-server` run the setup script manually to perform the database schema upgrade:
+```
+sudo setup-landscape-server
 ```
  * Start the Landscape services:
 ```
