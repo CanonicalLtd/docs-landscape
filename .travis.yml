@@ -8,7 +8,7 @@ before_install:
   - pip install requests
 
 install:
-  - snap install documentation-builder
+  - sudo snap install documentation-builder
  
 script:
   - documentation-builder
