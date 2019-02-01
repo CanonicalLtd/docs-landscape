@@ -1,7 +1,7 @@
 dist: xenial
 
 install:
-  - sudo snap install documentation-builder
+ - sudo snap install documentation-builder
  
 script:
-- documentation-builder
+ - documentation-builder
