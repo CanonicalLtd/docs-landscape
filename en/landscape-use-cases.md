@@ -128,3 +128,34 @@ Manage them via a [package profile].
 [tags]: ./concepts.md#tags
 [upgrade profiles]: ./concepts.md#upgrade-profiles
 [package profile]: ./landscape-managing-packages.md#adding-a-package-profile
+
+## Landscape-clients with configuration management tools
+
+If want to manage landcape-client through a configuration managment tool such
+as puppet, ansible, etc. you can avoid getting duplicate computers by writing
+the ```/etc/landscape/client.conf``` and ```/etc/default/landscape-config```
+files, and then restarting the landscape-client service.
+
+/etc/landscape/client.conf
+```no-highlight
+[client]
+log_level = info
+url = https://landscape.canonical.com/message-system
+ping_url = http://landscape.canonical.com/ping
+data_path = /var/lib/landscape/client
+registration_key = changeme
+computer_title = my_machine
+account_name = myaccount
+include_manager_plugins = ScriptExecution
+```
+
+/etc/default/landscape
+```no-highlight
+RUN=1
+```
+
+The advantage over calling landscape-config is that this will request a
+registration only if the client is not already registered against
+landscape-server. Be aware, that some configuration options (namely
+computer_title, tags, access_group) are only sent to landscape-server on
+registration.
