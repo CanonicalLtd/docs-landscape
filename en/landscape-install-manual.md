@@ -145,6 +145,7 @@ Please make the following changes:
 section `[stores]`:
 
  * `host`: the IP or hostname of the database server.  if not the default PostgreSQL port (5432), add a :NNNN port definition after the hostname (e.g., 10.0.1.5:3232)
+ * Ensure a strong password is set for user landscape (this differs from landscape_superuser password from earlier and will be created when setup script is executed) 
 
 section `[broker]`:
 
@@ -154,6 +155,7 @@ section `[schema]`:
 
  * change the value of `store_user` to the landscape super user we created above during the DB installation
  * add an entry for `store_password` with the password that was chosen in that same step
+
 
 ## Run the Landscape setup script
 This script will bootstrap the databases Landscape needs to work and setup the remaining of the configuration:
