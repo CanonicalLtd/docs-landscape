@@ -6,7 +6,7 @@ These are the release notes for Landscape 18.03.
 
 ## Highlights
 
-Landscape 18.03 is a mjor release with the following:
+Landscape 18.03 is a major release with the following:
 
  * Ubuntu 18.04 LTS ("bionic") support
  * Openstack autopilot removed
@@ -17,6 +17,10 @@ Landscape 18.03 is a mjor release with the following:
  * [#1739806](https://bugs.launchpad.net/bugs/1739806) Missing API call to rename computer. Up to now, it was only possible to change the title of a computer from the web interface. The equivalent API call was added.
  * [#1739823](https://bugs.launchpad.net/bugs/1739823) display a computer's repository profiles on the info page. Although repository profiles are still managed from the API, they are now listed on the computer info pages on which they apply.
  * [#1754806](https://bugs.launchpad.net/bugs/1754806) Variable delay to USN refresh to avoid timeouts. Security database updates are now scheduled over a time window.
+
+Landscape 18.03.1 contains the following fix:
+
+ * [#1825409](https://bugs.launchpad.net/landscape/+bug/1825409) unscalable layout for roles table.
 
 ## Upgrade notes
 

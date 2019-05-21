@@ -19,6 +19,10 @@ These are the release notes for Landscape 19.01.
  * [#1810793](https://bugs.launchpad.net/landscape/+bug/1810793) Landscape should include GPG material for Bionic.
  * There are no special upgrade instructions for Landscape 19.01, regardless of the installation method.
 
+Landscape 19.01.1 contains the following fix:
+
+ * [#1825409](https://bugs.launchpad.net/landscape/+bug/1825409) unscalable layout for roles table.
+
 ## Upgrade notes
 
 Landscape 19.01 supports Ubuntu 18.04 LTS ("bionic"). It can only be upgraded from Landscape 18.03 also running on the same Ubuntu 18.04 LTS release.
