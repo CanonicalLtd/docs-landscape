@@ -131,7 +131,7 @@ Manage them via a [package profile].
 
 ## Landscape-clients with configuration management tools
 
-If want to manage landcape-client through a configuration managment tool such
+If want to manage landcape-client through a configuration management tool such
 as puppet, ansible, etc. you can avoid getting duplicate computers by writing
 the ```/etc/landscape/client.conf``` and ```/etc/default/landscape-config```
 files, and then restarting the landscape-client service.

@@ -1,7 +1,10 @@
 dist: xenial
 
 install:
+ - sudo snap install core
+ - sudo apt-get install lintian
  - sudo snap install documentation-builder
  
 script:
  - documentation-builder
+ - spellintian  en/* | grep -v duplicate | wc -c

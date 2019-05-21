@@ -95,7 +95,7 @@ Follow these steps to perform a non-quickstart upgrade, that is, you did not use
  * double check that `UPGRADE_SCHEMA` is set to what you want in `/etc/default/landscape-server`
  * disable all the landscape-server cron jobs from `/etc/cron.d/landscape-server` in all app servers
  * Update the Landscape apache vhost as follows:
-  * Add a `Location </static>` defition to both the HTTP and HTTPS vhosts like this:
+  * Add a `Location </static>` definition to both the HTTP and HTTPS vhosts like this:
 ```
   <Location "/static">
     Header always append X-Frame-Options SAMEORIGIN

@@ -139,7 +139,7 @@ Re-enable the landscape-server cron jobs in `/etc/cron.d/landscape-server` in al
 
 ## Upgrading a Juju deployment
 
-Starting with Landscape 15.10, Juju deployed Landscape can be upgraded in place. The method for upgrading varies based upon using Juju 1.x or Juju 2.x and using a single unit for deployment vs mutliple unit deployment.
+Starting with Landscape 15.10, Juju deployed Landscape can be upgraded in place. The method for upgrading varies based upon using Juju 1.x or Juju 2.x and using a single unit for deployment vs multiple unit deployment.
 
 !!! Note:
     Newer landscape-server charm deprecates the `source` configuration key in favor of `install_sources`. The procedures in this document reflect this change.

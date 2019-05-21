@@ -452,7 +452,7 @@ On the client machine, after installing the `landscape-client` package, please r
 $ sudo landscape-config --computer-title "My First Computer" --account-name standalone --url https://<servername>/message-system --ping-url http://<servername>/ping
 ```
 
-If you used a custom CA, you will need to pass the `--ssl-public-key` parameter pointing to the CA file so that the client can recognize the issuer of the server certificat.
+If you used a custom CA, you will need to pass the `--ssl-public-key` parameter pointing to the CA file so that the client can recognize the issuer of the server certificate.
 
 You can now accept your client in the Landscape UI, and it begins to upload data.
 !!! Note:

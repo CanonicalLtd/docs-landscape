@@ -309,7 +309,7 @@ For example, let's say you forgot to add the public GPG key of a developer to th
 ```
 Subject: Package import failed for 'storm_0.18.1-0landscape4_amd64.changes'
 
-The following error(s) occured in package import:
+The following error(s) occurred in package import:
 
 * Uploaded data is not signed, but the destination pocket requires it
 * The signature on following file(s) could not be verified.  Please make sure to import the GPG key(s) used to sign the files or use a different key to sign them.
