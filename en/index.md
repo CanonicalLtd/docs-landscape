@@ -1,6 +1,4 @@
-Title: Landscape
-
-# Introduction to Landscape
+Title: Landscape Introduction
 
 Landscape is a system management tool designed to let you easily manage multiple Ubuntu systems.
 
@@ -15,7 +13,7 @@ Landscape is a system management tool designed to let you easily manage multiple
  * Configure users and groups
  * Scriptable API to customise Landscape for your organisation’s needs
  
- ## Monitor your machines at scale
+## Monitor your machines at scale
 
  * Set alerts for updates on specific machines
  * Graph trends of temperature, disk, memory usage and system load
