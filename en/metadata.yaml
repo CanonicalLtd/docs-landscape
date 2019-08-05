@@ -48,6 +48,9 @@ navigation:
       - title: Logs
         location: onprem-logs.md
 
+      - title: External Authentication
+        location: onprem-auth.md
+
   - title: API
     location: api.md
 
