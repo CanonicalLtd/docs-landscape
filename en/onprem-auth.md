@@ -73,7 +73,7 @@ This needs to be done for all users.
 
 ## OpenID-Connect Support
 
-Landscape can now use OpenID-Connect (OIDC) to authenticate users. To enable OpenID-Connect support, please add `oidc-issuer`, `oidc-client-id` and `oidc-client-secret` to `/etc/landscape/service.conf` in the `[landscape]` section. For example:
+From release 19.10, Landscape can use OpenID-Connect (OIDC) to authenticate users. To enable OpenID-Connect support, please add `oidc-issuer`, `oidc-client-id` and `oidc-client-secret` to `/etc/landscape/service.conf` in the `[landscape]` section. For example:
 
 ```
 [landscape]
