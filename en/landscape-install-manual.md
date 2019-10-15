@@ -1,4 +1,4 @@
-Title: Landscape 19.01 Manual Installation
+Title: Landscape 19.10 Manual Installation
 
 
 # Manual Installation
@@ -101,7 +101,7 @@ Let's begin.
 ## Adding the Landscape package archive and installing the package
 Landscape is distributed in a public PPA. You can add it to the system with these commands:
 ```
-sudo add-apt-repository ppa:landscape/19.01
+sudo add-apt-repository ppa:landscape/19.10
 sudo apt-get update
 ```
 

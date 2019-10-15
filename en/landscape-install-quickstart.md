@@ -15,9 +15,9 @@ Disadvantages;
  * not recommended when using more than 500 clients
 
 ## Installation
-To install Landscape 19.01 using quickstart on Ubuntu 18.04 LTS ("bionic"), follow these simple steps:
+To install Landscape 19.10 using quickstart on Ubuntu 18.04 LTS ("bionic"), follow these simple steps:
 ```
-sudo add-apt-repository ppa:landscape/19.01
+sudo add-apt-repository ppa:landscape/19.10
 sudo apt-get install landscape-server-quickstart
 ```
 If you have a valid OPL license, copy it over to `/etc/landscape/license.txt` and restart the services. Otherwise, a free license with 10+50 seats (bare metal plus LXC containers) will be used:
