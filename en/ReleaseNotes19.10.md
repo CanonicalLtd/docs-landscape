@@ -128,16 +128,14 @@ Re-enable the landscape-server cron jobs in `/etc/cron.d/landscape-server` in al
 55 2 * * * landscape /opt/canonical/landscape/scripts/report_anonymous_metrics.sh
 ```
 
-## Upgrading a Juju deployment
+## Upgrading a Juju 2.x deployment
 
-Starting with Landscape 15.10, Juju deployed Landscape can be upgraded in place. The method for upgrading varies based upon using Juju 1.x or Juju 2.x and using a single unit for deployment vs multiple unit deployment.
+Juju deployed Landscape can be upgraded in place, but it does depend if it is a single unit or multiple unit deployment.
 
 !!! Note:
     Newer landscape-server charm deprecates the `source` configuration key in favor of `install_sources`. The procedures in this document reflect this change.
 
-### Using Juju 2.x
-
-#### Single unit deployment
+### Single unit deployment
 If you have just one landscape-server unit, please follow this procedure:
 
 ```
@@ -149,7 +147,7 @@ juju run-action landscape-server/0 migrate-schema
 juju run-action landscape-server/0 resume
 ```
 
-#### Multiple unit deployment
+### Multiple unit deployment
 
 When upgrading a multiple unit deployment, you will need to update each unit individually.
 
