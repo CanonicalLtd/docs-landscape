@@ -8,7 +8,7 @@ Let's get ready to use Juju:
 sudo apt-get install juju
 ```
 
-To learn more about Juju and to bootstrap a Juju controller, check out their [getting started](https://jujucharms.com/get-started) page.
+To learn more about Juju and to bootstrap a Juju controller, check out their [getting started](https://jaas.ai/docs/getting-started-with-juju) page.
 
 ## Deploying OPL
 When deploying with Juju, you will use a Juju bundle. A bundle is an encapsulation of all of the parts needed to deploy the required services as well as associated relations and configurations that the deployment requires. When deploying OPL using Juju, there are three different methods you can use. Select the one that meets the needs for your environment.
