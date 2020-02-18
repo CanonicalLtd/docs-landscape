@@ -8,7 +8,6 @@ Each major Landscape version is supported for a period of one year after release
 | **major version**                | **Release date** | **Supported until** | **Version of Ubuntu**  |
 | ----------------------           | ---------------- | ------------------- | ---------------------  |
 | [19.10](./ReleaseNotes19.10.md)  | 2019-Oct         | **2020-Oct**        | 18.04 LTS              |
-| [19.01](./ReleaseNotes19.01.md)  | 2019-Jan         | **2020-Jan**        | 18.04 LTS              |
 
 ## Installation
 Landscape On-Premises consists of two parts:
@@ -39,7 +38,8 @@ The machine(s) running as the application server will need the following network
 # Unsupported Versions
 | **major version**                | **Release date** | **Supported expired on** | **Version of Ubuntu**  |
 | ----------------------           | ---------------- | ------------------------ | ---------------------  |
-| [18.03](./ReleaseNotes18.03.md)  | 2018-Jun         | **2019-Jun**        | 16.04 LTS or 18.04 LTS |
+| [19.01](./ReleaseNotes19.01.md)  | 2019-Jan         | **2020-Jan**             | 18.04 LTS              |
+| [18.03](./ReleaseNotes18.03.md)  | 2018-Jun         | **2019-Jun**             | 16.04 LTS or 18.04 LTS |
 | [17.03](./ReleaseNotes17.03.md)  | 2017-Mar         | **2019-Mar**             | 16.04 LTS              |
 | 16.06                            | 2016-Jul         | **2017-Dec**             | 14.04 LTS or 16.04 LTS |
 | 16.03                            | 2016-Apr         | **2017-Apr**             | 14.04 LTS              |
