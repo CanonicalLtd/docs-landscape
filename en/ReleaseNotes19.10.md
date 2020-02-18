@@ -16,6 +16,12 @@ These are the release notes for Landscape 19.10.
 
  * There are no special upgrade instructions for Landscape 19.10, regardless of the installation method.
 
+Landscape 19.10.1 contains the following fixes:
+
+ * Packaging of unblock-repo-activities script.
+ * [#1826862](https://bugs.launchpad.net/landscape/+bug/1826862) Quickstart cert generation with long fqdn.
+ * [#1858692](https://bugs.launchpad.net/landscape/+bug/1858692) Remove old dependency to ceph-common.
+
 ## Upgrade notes
 
 Landscape 19.10 supports Ubuntu 18.04 LTS ("bionic"). It can only be upgraded from Landscape 19.01 also running on the same Ubuntu 18.04 LTS release.
