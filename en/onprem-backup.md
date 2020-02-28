@@ -12,7 +12,7 @@ Given the wide variety of clients (from physical hardware, to VMs, to containers
 
 Backup of the Landscape server must be performed in such a fashion as to permit restoration to its latest possible state. Hence, the only supported backup option is one that permits point-in-time recovery (PITR hereafter).
 
-We strongly recommend that administrators of an on-premises Landscape instance first familiarize themselves with PostgreSQL's archived logging and PITR facilities. Some syntactic configuration changes have occurred across PostgreSQL versions, hence you should select the documentation for your particular PostgreSQL server version:
+We strongly recommend that administrators of an on-premises Landscape instance first familiarize themselves with PostgreSQL's archived logging (called WAL or write-ahead logging) and PITR facilities. Some syntactic configuration changes have occurred across PostgreSQL versions, hence you should select the documentation for your particular PostgreSQL server version:
 
 * [PostgreSQL 9.3](https://www.postgresql.org/docs/9.3/static/continuous-archiving.html) (Ubuntu 14.04 LTS)
 * [PostgreSQL 9.5](https://www.postgresql.org/docs/9.5/static/continuous-archiving.html) (Ubuntu 16.04 LTS)
