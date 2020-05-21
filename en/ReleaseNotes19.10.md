@@ -22,6 +22,11 @@ Landscape 19.10.1 contains the following fixes:
  * [#1826862](https://bugs.launchpad.net/landscape/+bug/1826862) Quickstart cert generation with long fqdn.
  * [#1858692](https://bugs.launchpad.net/landscape/+bug/1858692) Remove old dependency to ceph-common.
 
+Landscape 19.10.2 contains the following fixes:
+
+ * [#1877202](https://bugs.launchpad.net/landscape/+bug/1877202) OIDC login loop when missing end_session_endpoint
+ * [#1877424](https://bugs.launchpad.net/landscape/+bug/1877424) Landscape doesn't support focal hash-ids
+
 ## Upgrade notes
 
 Landscape 19.10 supports Ubuntu 18.04 LTS ("bionic"). It can only be upgraded from Landscape 19.01 also running on the same Ubuntu 18.04 LTS release.
