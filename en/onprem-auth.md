@@ -91,4 +91,12 @@ After making these changes, restart all Landscape services:
 sudo lsctl restart
 ```
 
-There is no provision yet to upgrade current users to OpenID-Connect authentication. Most providers return obfuscated subject identifiers which are not easily available. For this reason, we do not provide a user migration method and recommend than re-creating users.
+Optionally, a logout URL can be configured in case the provider does not expose one. It can be configured like so:
+
+```
+[landscape]
+…
+oidc-logout-url = https://accounts.google.com/logout
+```
+
+There is no provision yet to upgrade current users to OpenID-Connect authentication. Most providers return pairwise subject identifiers (sub) which are not easily available. For this reason, we do not provide a user migration method and recommend than re-creating users.
