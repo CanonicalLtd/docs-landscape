@@ -26,7 +26,7 @@ Depending on your deployment method, these may live on the same machine or diffe
 ### Manual installation
 * **[Manual installation](./landscape-install-manual.md)**: for when you don't have a suitable Juju environment but need a scalable deployment.
 
-## Installation requrirements
+## Installation requirements
 
 ### Network access
 The machine(s) running as the application server will need the following network access:
