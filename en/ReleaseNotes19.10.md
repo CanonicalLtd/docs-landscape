@@ -32,6 +32,12 @@ Landscape 19.10.3 contains the following fixes:
  * [#1523950](https://bugs.launchpad.net/landscape/+bug/1523950) Cron jobs don't get proxy setting from landscape
  * [#1718746](https://bugs.launchpad.net/landscape/+bug/1718746) Landscape API doesn't support GPG subkeys
 
+Landscape 19.10.4 contains the following fixes:
+
+ * [#1896287](https://bugs.launchpad.net/landscape/+bug/1896287) Timeouts when modifying package-profiles
+ * [#1898219](https://bugs.launchpad.net/landscape/+bug/1898219) Server fails to receive binary script output
+ * [#1896276](https://bugs.launchpad.net/landscape/+bug/1896276) Low admin limit of juju-bootstrapped deployment
+
 ## Upgrade notes
 
 Landscape 19.10 supports Ubuntu 18.04 LTS ("bionic"). It can only be upgraded from Landscape 19.01 also running on the same Ubuntu 18.04 LTS release.
