@@ -285,7 +285,6 @@ If you are using a custom certificate authority for your SSL certificate, then y
 
     RewriteRule ^/ping$ http://localhost:8070/ping [P]
 
-    RewriteCond %{REQUEST_URI} !^/server-status
     RewriteCond %{REQUEST_URI} !^/icons
     RewriteCond %{REQUEST_URI} !^/static/
     RewriteCond %{REQUEST_URI} !^/offline/
@@ -425,6 +424,10 @@ If you are using a custom certificate authority for your SSL certificate, then y
 We now need to enable some modules:
 ```
 for module in rewrite proxy_http ssl headers expires; do sudo a2enmod $module; done
+```
+Unless you require it and take necessary steps to secure that endpoint, it is recommended to disable mod-status:
+```
+sudo a2dismod status
 ```
 Disable the default http vhost:
 ```

@@ -105,6 +105,11 @@ Update the Landscape apache vhost as follows, adding the following SSL directive
   SSLCipherSuite EECDH+AESGCM+AES128:EDH+AESGCM+AES128:EECDH+AES128:EDH+AES128:ECDH+AESGCM+AES128:aRSA+AESGCM+AES128:ECDH+AES128:DH+AES128:aRSA+AES128:EECDH+AESGCM:EDH+AESGCM:EECDH:EDH:ECDH+AESGCM:aRSA+AESGCM:ECDH:DH:aRSA:HIGH:!MEDIUM:!aNULL:!NULL:!LOW:!3DES:!DSS:!EXP:!PSK:!SRP:!CAMELLIA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA:!aECDH
 ```
 
+Unless you require it and take necessary steps to secure that endpoint, it is recommended to disable mod-status:
+```
+sudo a2dismod status
+```
+
 Restart apache
 ```
 sudo service apache2 restart
